@@ -1,0 +1,91 @@
+(TG) Tim Gebhardt
+(MM) Maxim Mass
+(AR) Ayende Rahien
+
+02 Nov 2005 (TG)
+   -Start of project
+
+12 Jan 2006 (TG)
+   -Created two different project/solution sets, one for VS.NET 2003/.NET 1.1
+	    and one for VS.NET 2005/.NET 2.0.
+
+16 Jan 2006 (TG)
+   -Fixed a bug where trying to add a 'null' object to the cache would throw
+	  an exception.
+
+17 Jan 2006 (MM)
+   -Fixed the bug where an exception would be thrown and not taken care of
+	  when a socket pool thread would terminate.
+   -Cleaned up the time comparison stuff in the socket pool.
+
+18 Jan 2006 (TG)
+   -Enabled log4net to work on the client library and in the MemCachedBench
+	    program.
+   -Removed the overridden GetHashCode function in SockIO, which was a carry
+	    over from the java port, because it was causing problems and 
+	    shouldn't be necessary.
+   -Fixed a bug where a connection pool could not be closed cleanly.
+   
+23 Jan 2006 (TG)
+   -Huge overhaul of code.  Basically ran the client library through FxCop
+    	    (http://www.gotdotnet.com/team/fxcop/) and tried to fix every
+    	    error.  There are breaking changes, but this should be the
+    	    one and only time this ever happens.
+   -Internationalized the exception messages and log messages.
+   -Added 2 FxCop projects (one for .NET 1.1 and one for .NET 2.0) and a
+   	    custom dictionary file to add our custom words for FxCop.
+   -Removed the NestedIOException class because the .NET IOException class
+            can do inner exceptions.
+   -Split off SockIO class into it's own source file.
+   
+31 March 2006 (TG)
+   -Bugfix.  There were problems where the busy and available pools were
+	     continually being created over and over again.  This has been
+	     fixed and not only does this solve a very subtle outstanding
+	     bug, but it also results in a massive performance increase!
+   -Bugfix.  Fixed the code where we treat the input and output stream
+	     of a SockIO object as two different objects when .NET just
+	     treats them as a single object.  This was a hold-over from 
+	     java.
+
+5 April 2006 (TG)
+   -Performance. Turns out that the thorough (sp?) logging throughout the
+		 library was part of its performance downfall :).  There
+		 was a lot of string concatenation and hashtable lookups,
+		 which by themselve don't really do much.  However, if you
+		 Do 100,000 hashtable lookups (because all the messages
+		 are internationalized), and 50,000 string concatenations
+		 it starts to all add up.  I wrapped every logging statement
+		 with a boolean lookup on log4net which can check to see
+		 if we're even going to log the message, and if not, don't
+		 even do the work involved in logging.  If you turn off 
+		 logging, or turn it up to some high level like "WARN" or 
+		 "ERROR", then you will see a pretty significant performance
+		 benefit, CPU usage down significantly, and network usage
+		 up significantly.
+		 
+21 November 2006 (AR)
+   -Bugfix.	Workaround incorporated to work around the bug in
+   		BufferedStream.  BufferedStream calls Seek() on streams it
+   		wraps even if the underlying stream does not support Seek()
+   		(such as NetworkStream).
+  
+21 November 2006 (TG)
+   Upgrade.	Upgraded the log4net libraries to 1.2.10.  Split the /lib
+   		folder into a 1.1 and 2.0 directories.
+   		
+21 November 2006 (TG)
+   Signed assembly
+   		I added a keyfile to the solution so that the client library
+   		can be strongly typed.  There may be some debate whether or
+   		not the key should be secret, but this is just easier this 
+   		way.  If people are worried about a modified assembly file
+   		I can start posting MD5 or SHA1 hashes of the binaries
+   		on the project page.
+
+7 June 2007 (TG)
+   -Bugfix.	Applied a patch from a contributer (thanks Dave Peckham!) that 
+                fixes a bug where we don't get the proper size of the buffer.
+                In many cases the code would still work fine, but you may 
+                have experienced periodic errors when working with very large
+                objects, or seeing wasted space on your memcached servers.

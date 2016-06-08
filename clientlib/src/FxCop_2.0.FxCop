@@ -1,0 +1,676 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.35" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">http://www.gotdotnet.com/team/fxcop//xsl/1.35/FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-us" />
+  <VersionAware>False</VersionAware>
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/clientlib/bin/2.0/Debug/Memcached.ClientLibrary.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.35">
+  <Targets>
+   <Target Name="$(ProjectDir)/clientlib/bin/2.0/Debug/Memcached.ClientLibrary.dll">
+    <Modules>
+     <Module Name="memcached.clientlibrary.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldDeclareMinimumSecurity" Category="Microsoft.Usage" CheckId="CA2209" Created="2006-01-23 16:33:02Z">
+        <Issue>
+         <Item>Memcached.ClientLibrary</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2006-01-23 16:33:02Z">
+        <Issue Name="NoStrongName">
+         <Item>Memcached.ClientLibrary</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Memcached.ClientLibrary">
+        <Types>
+         <Type Name="CRCTool">
+          <Messages>
+           <Message TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Status="Excluded" Created="2006-01-23 16:33:02Z">
+            <Issue Name="Type">
+             <Item>CRCTool</Item>
+            </Issue>
+            <Notes>
+             <User Name="tgebhar">
+              <Note Id="0" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name=".ctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>CRCTool.CRCTool()</Item>
+               <Item>crcxor</Item>
+               <Item>System.UInt64</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>CRCTool.CRCTool()</Item>
+               <Item>refin</Item>
+               <Item>System.Int32</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>CRCTool.CRCTool()</Item>
+               <Item>refout</Item>
+               <Item>System.Int32</Item>
+               <Item>0</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CalcCRCITT(System.Byte[]):System.UInt16">
+            <Messages>
+             <Message Id="0#p" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>CRCTool.CalcCRCITT(Byte[]):UInt16</Item>
+               <Item>p</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="Member" TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>CRCTool.CalcCRCITT(Byte[]):UInt16</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2006-01-23 16:33:02Z" FixCategory="Breaking">
+              <Issue>
+               <Item>CRCTool.CalcCRCITT(Byte[]):UInt16</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.CalcCRCITT(Byte[]):UInt16</Item>
+              </Issue>
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.CalcCRCITT(Byte[]):UInt16</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="crcbitbybit(System.Byte[]):System.UInt64">
+            <Messages>
+             <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>crcbitbybit</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="0#p" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>CRCTool.crcbitbybit(Byte[]):UInt64</Item>
+               <Item>p</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="crcbitbybit" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>crcbitbybit</Item>
+               <Item>CRCTool.crcbitbybit(Byte[]):UInt64</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crcbitbybit(Byte[]):UInt64</Item>
+              </Issue>
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crcbitbybit(Byte[]):UInt64</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="crcbitbybitfast(System.Byte[]):System.UInt64">
+            <Messages>
+             <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>crcbitbybitfast</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="0#p" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>CRCTool.crcbitbybitfast(Byte[]):UInt64</Item>
+               <Item>p</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="crcbitbybitfast" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>crcbitbybitfast</Item>
+               <Item>CRCTool.crcbitbybitfast(Byte[]):UInt64</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crcbitbybitfast(Byte[]):UInt64</Item>
+              </Issue>
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crcbitbybitfast(Byte[]):UInt64</Item>
+              </Issue>
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crcbitbybitfast(Byte[]):UInt64</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="crctable(System.Byte[]):System.UInt64">
+            <Messages>
+             <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>crctable</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="0#p" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>CRCTool.crctable(Byte[]):UInt64</Item>
+               <Item>p</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="crctable" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>crctable</Item>
+               <Item>CRCTool.crctable(Byte[]):UInt64</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crctable(Byte[]):UInt64</Item>
+              </Issue>
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crctable(Byte[]):UInt64</Item>
+              </Issue>
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crctable(Byte[]):UInt64</Item>
+              </Issue>
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crctable(Byte[]):UInt64</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="crctablefast(System.Byte[]):System.UInt64">
+            <Messages>
+             <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>crctablefast</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="0#p" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="ParameterOneLetter">
+               <Item>CRCTool.crctablefast(Byte[]):UInt64</Item>
+               <Item>p</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="crctablefast" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>crctablefast</Item>
+               <Item>CRCTool.crctablefast(Byte[]):UInt64</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crctablefast(Byte[]):UInt64</Item>
+              </Issue>
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crctablefast(Byte[]):UInt64</Item>
+              </Issue>
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crctablefast(Byte[]):UInt64</Item>
+              </Issue>
+              <Issue>
+               <Item>'p'</Item>
+               <Item>CRCTool.crctablefast(Byte[]):UInt64</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Init(Memcached.ClientLibrary.CRCTool+CRCCode):System.Void">
+            <Messages>
+             <Message Id="0#" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Parameter">
+               <Item>CodingType</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="reflect(System.UInt64,System.Int32):System.UInt64">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2006-01-23 16:33:02Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>CRCTool.reflect(UInt64, Int32):UInt64</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="CRCTool+CRCCode">
+          <Messages>
+           <Message TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Status="Excluded" Created="2006-01-23 16:33:02Z">
+            <Issue Name="Type">
+             <Item>CRCCode</Item>
+            </Issue>
+            <Notes>
+             <User Name="tgebhar">
+              <Note Id="3" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="CRC_CCITT">
+            <Messages>
+             <Message Id="Member" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>CRC_CCITT</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="3" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="Member" TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue Name="Member">
+               <Item>CRCCode.CRC_CCITT</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="3" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IteratorIsolateCollection">
+          <Messages>
+           <Message TypeName="CollectionsShouldImplementGenericInterface" Category="Microsoft.Design" CheckId="CA1010" Status="Excluded" Created="2006-01-23 16:33:02Z">
+            <Issue Certainty="60">
+             <Item>IteratorIsolateCollection</Item>
+             <Item>IEnumerable</Item>
+            </Issue>
+            <Notes>
+             <User Name="tgebhar">
+              <Note Id="1" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="MemcachedClient">
+          <Members>
+           <Member Name="GetMultiple(System.String[],System.Int32[],System.Boolean):System.Collections.Hashtable">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'hashCodes'</Item>
+               <Item>MemcachedClient.GetMultiple(String[], Int32[], Boolean):Hashtable</Item>
+              </Issue>
+              <Issue>
+               <Item>'hashCodes'</Item>
+               <Item>MemcachedClient.GetMultiple(String[], Int32[], Boolean):Hashtable</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="8" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NativeHandler">
+          <Members>
+           <Member Name="Decode(System.Byte[]):System.Object">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'bytes'</Item>
+               <Item>NativeHandler.Decode(Byte[]):Object</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="4" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SockIO">
+          <Members>
+           <Member Name=".ctor(Memcached.ClientLibrary.SockIOPool,System.String,System.Int32,System.Int32,System.Boolean)">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'host'</Item>
+               <Item>SockIO.SockIO(SockIOPool, String, Int32, Int32, Boolean)</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="2" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SockIOPool">
+          <Members>
+           <Member Name="ClearHostFromPool(System.Collections.Hashtable,System.String):System.Void">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'pool'</Item>
+               <Item>SockIOPool.ClearHostFromPool(Hashtable, String):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="GetSock(System.String,System.Object):Memcached.ClientLibrary.SockIO">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'key'</Item>
+               <Item>SockIOPool.GetSock(String, Object):SockIO</Item>
+              </Issue>
+              <Issue>
+               <Item>'key'</Item>
+               <Item>SockIOPool.GetSock(String, Object):SockIO</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="RemoveSocketFromPool(System.Collections.Hashtable,System.String,Memcached.ClientLibrary.SockIO):System.Void">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>'pool'</Item>
+               <Item>SockIOPool.RemoveSocketFromPool(Hashtable, String, SockIO):Void</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SockIOPool+MaintenanceThread">
+          <Members>
+           <Member Name="Interval">
+            <Accessors>
+             <Accessor Name="get_Interval():System.Int64">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2006-01-23 16:33:02Z">
+                <Issue>
+                 <Item>MaintenanceThread.get_Interval():Int64</Item>
+                </Issue>
+                <Notes>
+                 <User Name="tgebhar">
+                  <Note Id="6" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="Maintain():System.Void">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2006-01-23 16:33:02Z">
+              <Issue>
+               <Item>MaintenanceThread.Maintain():Void</Item>
+               <Item>System.Exception</Item>
+              </Issue>
+              <Notes>
+               <User Name="tgebhar">
+                <Note Id="7" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="tgebhar">
+    <Note Id="0" Modified="2006-01-23 22:25:23Z">This code was found on CodeProject.com and was not written by our project.  I am leaving it as close to as is as possible, so we don't need to fix these errors.</Note>
+    <Note Id="1" Modified="2006-01-23 22:25:36Z">We can't fix this if we want to maintain compatibility with .NET 1.1.</Note>
+    <Note Id="2" Modified="2006-01-23 22:26:16Z">This argument is validated, but .NET 2.0 wants you to use string.IsNullOrEmpty.  We are trying to maintain .NET 1.1 compatibility.</Note>
+    <Note Id="3" Modified="2006-01-23 22:26:45Z">This code was found on CodeProject.com and not written by the developers of this project.  We will just leave it as close to as-is as possible.</Note>
+    <Note Id="4" Modified="2006-01-23 22:27:21Z">This code is later validated by a child method call.</Note>
+    <Note Id="5" Modified="2006-01-23 22:28:28Z">These parameters are validated, but .NET 2.0 wants you to validate with string.IsNullOrEmpty, but we are trying to maintain .NET 1.1 compatibility.</Note>
+    <Note Id="6" Modified="2006-01-23 22:28:43Z">This is either a bug with FxCop or .NET 2.0.</Note>
+    <Note Id="7" Modified="2006-01-23 22:29:06Z">This is ok since since it is the maintenance thread's job to catch all exceptions, clean them up, and log them.</Note>
+    <Note Id="8" Modified="2006-01-23 22:29:58Z">This code is validated.  For some reason FxCop isn't picking up on it.</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="AssembliesShouldDeclareMinimumSecurity" Category="Microsoft.Usage" CheckId="CA2209">
+    <Resolution Name="Default">No valid permission requests were found for assembly '{0}'. You should always specify the minimum security permissions using SecurityAction.RequestMinimum.</Resolution>
+   </Rule>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign '{0}' with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+    <Resolution Name="Default">'{0}' appears to have no upstream public or protected callers.</Resolution>
+   </Rule>
+   <Rule TypeName="CollectionsShouldImplementGenericInterface" Category="Microsoft.Design" CheckId="CA1010">
+    <Resolution Name="Default">'{0}' appears to be a non-generic, strongly typed collection. Add an implementation to the instance of {1}&lt;T&gt; where T is {0}'s underlying element type.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify '{0}' to catch a more specific exception than '{1}' or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805">
+    <Resolution Name="Default">{0} initializes field {1} of type {2} to {3}. Remove this initialization as it will be done automatically by the runtime.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+    <Resolution Name="Member">Correct the casing of member name '{0}'.</Resolution>
+    <Resolution Name="Parameter">Correct the casing of parameter name '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="Member">Correct the spelling of the unrecognized token '{0}' in member name '{1}'.</Resolution>
+    <Resolution Name="ParameterOneLetter">In method {0}, consider providing a more meaningful name than the one-letter parameter name '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707">
+    <Resolution Name="Member">Remove all underscores from member '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="LongAcronymsShouldBePascalCased" Category="Microsoft.Naming" CheckId="CA1705">
+    <Resolution Name="Member">Correct the capitalization of member name '{0}'.</Resolution>
+    <Resolution Name="Type">Correct the capitalization of type name '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in VB) of {0} is never used. Mark the member as static (or Shared in VB) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062">
+    <Resolution Name="Default">Validate parameter {0} passed to externally visible method {1}.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

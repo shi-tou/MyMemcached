@@ -1,0 +1,7 @@
+To Do:
+
+- clean up and add more unit tests
+- Add a configuration handler so we can set the client library
+	properties in the App/Web.config file.
+- Really stress test and robust test server failover.
+- Bug fix (always :) ).
